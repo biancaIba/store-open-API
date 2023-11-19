@@ -1,4 +1,4 @@
 export const env = {
-    url: 'http://localhost:3055/morphi/api1/',
+    url: 'https://fakestoreapi.com/',
     site: 'http://localhost:3055/menu/',
 };

@@ -1,0 +1,123 @@
+.card-wrapper {
+    width: 80%;
+    position: relative;
+    left: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    width: -webkit-fill-available;
+    max-width: 45%;
+    min-height: 430px;
+    border-radius: 10px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    transition: 0.5s;
+    margin-bottom: 10px;
+}
+
+.card p {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.card .card-image {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: var(--dark);
+    transition: .5s;
+}
+
+.card-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.buttons {
+    position: absolute;
+    bottom: 70px;
+    display: flex;
+    gap: 12px;
+    z-index: 3;
+    justify-content: center;
+}
+
+i {
+    background: var(--back);
+    padding: 12px;
+    border: 1px solid var(--dark);
+    border-radius: 8px;
+    transition: .2s;
+    transform: translateY(32px);
+    opacity: 0;
+}
+
+.card-title {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    z-index: 4;
+    width: 100%;
+    height: fit-content;
+    padding: 12px 14px;
+    z-index: 1;
+    color: var(--dark);
+    background-color: var(--back);
+}
+
+.card:hover .card-title {
+    background-color: var(--back);
+}
+
+.card:hover img {
+    opacity: 0.4;
+    transition: .5s;
+}
+
+.card:hover .card-image {
+    transform: translateY(-400px);
+    transition: all .9s;
+}
+
+.card:hover .card-description {
+    opacity: 0.9;
+}
+
+i:hover {
+    background: var(--main);
+    transition: .2s;
+}
+
+.card:hover i {
+    opacity: 1;
+}
+
+@media(max-width: 700px) {
+    .card {
+        width: -webkit-fill-available;
+        max-width: 60%;
+        min-height: 400px;
+        margin-bottom: 20px;
+        left: 20%;
+    }
+}
+
+@media(max-width: 530px) {
+    .card {
+        width: -webkit-fill-available;
+        max-width: 80%;
+        left: 10%;
+    }
+}

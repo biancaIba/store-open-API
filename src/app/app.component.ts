@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { env } from 'src/environments'
 
 @Component({
   selector: 'app-root',
@@ -7,5 +6,5 @@ import { env } from 'src/environments'
 })
 
 export class AppComponent {
-  title     = 'Final Project';
+  title = 'Final Project';
 }

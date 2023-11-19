@@ -3,18 +3,33 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from "@angular/common/http";
 
-import { routing } from './app.routing.module';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { ProductsComponent } from './components/products/products.component';
+import { BannerComponent } from './components/banner/banner.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    ProductsComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
-    routing,
+    ReactiveFormsModule,
     HttpClientModule,
+    RouterModule.forRoot([
+      { path: "", component: BannerComponent },
+      { path: "products/:category", component: ProductsComponent, pathMatch: "full" },
+      { path: "login", component: LoginComponent, pathMatch: "full" },
+    ]),
   ],
   bootstrap: [AppComponent],
   providers: []
