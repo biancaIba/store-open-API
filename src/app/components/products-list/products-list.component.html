@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="card-wrapper">
+        <div class="card" *ngFor="let product of products">
+            <div class="card-image">
+                <img [src]="product.image">
+            </div>
+            <div class="card-title">
+                <h4>{{ product.title }}</h4>
+                <div class="card-description">
+                    <p *ngIf="product.description">{{ product.description }}</p>
+                </div>
+            </div>
+            <div class="buttons">
+                <i (click)="addProduct(product.id)" class="fa-solid fa-plus"></i>
+                <i (click)="minusProduct(product.id)" class="fa-solid fa-minus"></i>
+            </div>
+        </div>
+    </div>
+</div>
