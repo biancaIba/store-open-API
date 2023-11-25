@@ -1,3 +1,3 @@
 export const env = {
-    url: 'https://fakestoreapi.com/'
+  url: 'https://fakestoreapi.com/',
 };

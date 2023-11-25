@@ -11,26 +11,28 @@ import { CartService } from '../../services/cart.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './products-list.component.html',
-  styleUrl: './products-list.component.css'
+  styleUrl: './products-list.component.css',
 })
-
 export class ProductsListComponent {
-
   products: Product[] = [];
   category: string = '';
 
   constructor(
     private productService: ProductsService,
     private route: ActivatedRoute,
-    private cartService: CartService,
-  ) { }
+    private cartService: CartService
+  ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       this.category = params['category'];
       this.productService.getProducts(this.category).subscribe({
-        next: (data: Product[]) => { this.products = data },
-        error: (err) => { console.error('Error trying to obtain products:', err); }
+        next: (data: Product[]) => {
+          this.products = data;
+        },
+        error: (err) => {
+          console.error('Error trying to obtain products:', err);
+        },
       });
     });
   }
@@ -42,5 +44,4 @@ export class ProductsListComponent {
   minusProduct(productId: number): void {
     this.cartService.minusProduct(productId);
   }
-
 }

@@ -40,7 +40,7 @@ nav .item {
   top: 62px;
 }
 
-.dropdown>div {
+.dropdown > div {
   transform: translate(0, -100%);
   transition: all 0.5s 0.1s;
   position: relative;
@@ -70,23 +70,23 @@ nav .item {
   transition: 0.35s;
 }
 
-nav .item:hover>.dropdown>div {
+nav .item:hover > .dropdown > div {
   transform: translate(0);
 }
 
-nav .item:nth-child(1):hover~.underline {
+nav .item:nth-child(1):hover ~ .underline {
   transform: translate(0, 0);
 }
 
-nav .item:nth-child(2):hover~.underline {
+nav .item:nth-child(2):hover ~ .underline {
   transform: translate(100%, 0);
 }
 
-nav .item:nth-child(3):hover~.underline {
+nav .item:nth-child(3):hover ~ .underline {
   transform: translate(200%, 0);
 }
 
-nav .item:nth-child(4):hover~.underline {
+nav .item:nth-child(4):hover ~ .underline {
   transform: translate(300%, 0);
 }
 
@@ -103,7 +103,7 @@ nav .item:nth-child(4):hover~.underline {
   transition: 0.35s;
 }
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
   nav {
     width: 95%;
   }
