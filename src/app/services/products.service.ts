@@ -6,15 +6,13 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { HandleErrorService } from './handle-error.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class ProductsService {
-
   constructor(
     private http: HttpClient,
-    private handleError: HandleErrorService,
-  ) { }
+    private handleError: HandleErrorService
+  ) {}
 
   getCategories(): Observable<string[]> {
     const apiUrl = `${env.url}products/categories`;
@@ -24,9 +22,9 @@ export class ProductsService {
   getProducts(category: string): Observable<Product[]> {
     if (category === 'all') {
       const apiUrl = `${env.url}products`;
-      return this.http.get<Product[]>(apiUrl).pipe(
-        catchError(this.handleError.handleError)
-      );
+      return this.http
+        .get<Product[]>(apiUrl)
+        .pipe(catchError(this.handleError.handleError));
     } else {
       const apiUrl = `${env.url}products/category/${category}`;
       return this.http.get<Product[]>(apiUrl);

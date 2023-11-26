@@ -6,7 +6,7 @@ section {
   padding-top: 60px;
 }
 
-footer.top>img {
+footer.top > img {
   height: 50px;
   margin: 0 auto 50px;
 }
@@ -59,7 +59,7 @@ footer p {
   color: var(--back);
 }
 
-.legal>a {
+.legal > a {
   margin: 0 0 0 4px;
 }
 
@@ -68,7 +68,7 @@ footer p {
   font-size: 12px;
 }
 
-.legal>span {
+.legal > span {
   margin-right: 10px;
 }
 
@@ -83,7 +83,7 @@ footer.top .socials {
   height: 56px;
 }
 
-footer.top .socials>a {
+footer.top .socials > a {
   font-size: 24px;
 }
 
@@ -115,7 +115,7 @@ footer.top .socials>a {
     translate: 0;
   }
 
-  footer.top>img {
+  footer.top > img {
     margin: 0 0 50px;
   }
 }

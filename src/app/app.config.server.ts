@@ -4,9 +4,7 @@ import { appConfig } from './app.config';
 import { HttpClient } from '@angular/common/http';
 
 const serverConfig: ApplicationConfig = {
-  providers: [
-    provideServerRendering()
-  ]
+  providers: [provideServerRendering()],
 };
 
 export const config = mergeApplicationConfig(appConfig, serverConfig);

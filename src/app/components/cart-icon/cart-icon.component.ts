@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './cart-icon.component.html',
-  styleUrl: './cart-icon.component.css'
+  styleUrl: './cart-icon.component.css',
 })
-
-export class CartIconComponent { }
+export class CartIconComponent {}

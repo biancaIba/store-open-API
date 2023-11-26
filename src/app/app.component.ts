@@ -18,7 +18,6 @@ import { CartIconComponent } from './components/cart-icon/cart-icon.component';
   ],
   templateUrl: './app.component.html',
 })
-
 export class AppComponent {
   title = 'project';
 }

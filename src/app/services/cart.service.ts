@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
-
-  constructor() { }
+  constructor() {}
 
   addProduct(productId: number): void {
     const id = productId.toString();
@@ -25,7 +24,7 @@ export class CartService {
   }
 
   hasProducts(): boolean {
-    return (sessionStorage.length > 0);
+    return sessionStorage.length > 0;
   }
 
   private getActualCounter(id: string): number {
@@ -36,5 +35,4 @@ export class CartService {
     }
     return actualCounter;
   }
-
 }
