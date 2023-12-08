@@ -102,3 +102,9 @@ nav .item:nth-child(4):hover~.underline {
   border-radius: 10px;
   transition: 0.35s;
 }
+
+@media(max-width: 600px) {
+  nav {
+    width: 95%;
+  }
+}
