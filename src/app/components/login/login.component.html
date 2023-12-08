@@ -64,11 +64,11 @@
         </div>
       </div>
     </div>
-
-    <div *ngIf="message">{{ message }}</div>
     <button id="btn-submit" type="submit" [disabled]="!form.valid">
       Sign In
     </button>
   </form>
-  <span>Don't have an account?<a [routerLink]="['/register']">Register.</a></span>
+  <span
+    >Don't have an account? <a [routerLink]="['/register']">Register.</a></span
+  >
 </div>
