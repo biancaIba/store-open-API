@@ -1,0 +1,9 @@
+.container {
+    background-color: var(--main);
+    border-radius: 50%;
+    position: sticky;
+}
+
+i {
+    color: var(--dark);
+}
