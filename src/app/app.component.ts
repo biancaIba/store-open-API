@@ -1,20 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { CartService } from './services/cart.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
 })
-
-export class AppComponent implements OnInit {
-
+export class AppComponent {
   title: string = 'Final Project';
-  hasCart: boolean = null;
-
-  constructor(private cartService: CartService) {}
-
-  ngOnInit(): void {
-    this.hasCart = this.cartService.hasProducts();
-  }
-
 }

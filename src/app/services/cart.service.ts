@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
+
+  private cartChangesSubject: Subject<void> = new Subject<void>();
+
   constructor() {}
 
   addProduct(productId: number): void {
     const id = productId.toString();
     const counter = this.getActualCounter(id) + 1;
     sessionStorage.setItem(id, counter.toString());
+    this.cartChangesSubject.next();
   }
 
   minusProduct(productId: number): void {
@@ -17,10 +22,12 @@ export class CartService {
     const counter = this.getActualCounter(id) - 1;
     if (counter < 1) sessionStorage.removeItem(id);
     else sessionStorage.setItem(id, counter.toString());
+    this.cartChangesSubject.next();
   }
 
   cancelCart(): void {
     sessionStorage.clear();
+    this.cartChangesSubject.next();
   }
 
   hasProducts(): boolean {
@@ -34,5 +41,9 @@ export class CartService {
       if (key === id) actualCounter = parseFloat(sessionStorage.getItem(key)!);
     }
     return actualCounter;
+  }
+
+  obtainCartChanges() {
+    return this.cartChangesSubject.asObservable();
   }
 }
