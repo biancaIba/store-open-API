@@ -1,15 +1,14 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { env } from 'src/environments';
+import { Observable, catchError, throwError } from 'rxjs';
 import { Product } from '../interfaces/products.interface';
+import { env } from '../../environments';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductsService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getCategories(): Observable<string[]> {
     const apiUrl = `${env.url}products/categories`;
@@ -17,13 +16,17 @@ export class ProductsService {
   }
 
   getProducts(category: string): Observable<Product[]> {
-    if (category === 'all') {
-      const apiUrl = `${env.url}products`;
-      return this.http.get<Product[]>(apiUrl);
-    } else {
-      const apiUrl = `${env.url}products/category/${category}`;
-      return this.http.get<Product[]>(apiUrl);
-    }
+    let request;
+    if (category === 'all')
+      request = this.http.get<Product[]>(`${env.url}products`);
+    else
+      request = this.http.get<Product[]>(
+        `${env.url}products/category/${category}`
+      );
+    return request.pipe(
+      catchError(() => {
+        return throwError(() => new Error('Something went wrong!'));
+      })
+    );
   }
-
 }

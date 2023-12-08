@@ -1,16 +1,21 @@
 <header>
-    <nav>
-        <a [routerLink]="['/products/all']" class="item">Products</a>
-        <div class="item" *ngIf="categories">
-            Categories
-            <div class="dropdown">
-                <div>
-                    <a *ngFor="let category of categories" [routerLink]="['/products/', category]" >{{ category }}</a>
-                </div>
-            </div>
+  <nav>
+    <a [routerLink]="['']" class="item">Home</a>
+    <a [routerLink]="['/products/all']" class="item">Products</a>
+    <div class="item" *ngIf="categories">
+      Categories
+      <div class="dropdown">
+        <div>
+          <a
+            *ngFor="let category of categories"
+            [routerLink]="['/products/', category]"
+            >{{ category }}</a
+          >
         </div>
-        <a class="item">Contact</a>
-        <a [routerLink]="['/login']" class="item login">Sign In</a>
-        <div class="underline"></div>
-    </nav>
+      </div>
+    </div>
+    <a *ngIf="logged" click="logOut()" class="item">Log Out</a>
+    <a *ngIf="!logged" [routerLink]="['/login']" class="item login">Log In</a>
+    <div class="underline"></div>
+  </nav>
 </header>

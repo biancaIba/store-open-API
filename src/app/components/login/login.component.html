@@ -1,38 +1,73 @@
 <div class="container">
-    <form [formGroup]="form" (ngSubmit)="login()">
-        <h1>Sign In</h1>
+  <form [formGroup]="form" (ngSubmit)="login()">
+    <h1>Sign In</h1>
 
-        <div>
-            <input type="text" formControlName="username" name="username" placeholder="Username" required />
-            <div *ngIf="form.get('username')?.invalid && (form.get('username')?.touched && form.get('username')?.dirty)">
-                <div *ngIf="form.get('username')?.errors?.['username']">
-                    Username is required.
-                </div>
-            </div>
+    <div>
+      <input
+        type="text"
+        formControlName="username"
+        name="username"
+        placeholder="Username"
+        required
+      />
+      <div
+        *ngIf="
+          form.get('username')?.invalid &&
+          form.get('username')?.touched &&
+          form.get('username')?.dirty
+        "
+      >
+        <div *ngIf="form.get('username')?.errors?.['username']">
+          Username is required.
         </div>
+      </div>
+    </div>
 
-        <div>
-            <input type="email" formControlName="email" name="email" placeholder="Email" required />
-            <div *ngIf="form.get('email')?.invalid && (form.get('email')?.touched && form.get('email')?.dirty)">
-                <div *ngIf="form.get('email')?.errors?.['email']">
-                    It is not a valid email.
-                </div>
-            </div>
+    <div>
+      <input
+        type="email"
+        formControlName="email"
+        name="email"
+        placeholder="Email"
+        required
+      />
+      <div
+        *ngIf="
+          form.get('email')?.invalid &&
+          form.get('email')?.touched &&
+          form.get('email')?.dirty
+        "
+      >
+        <div *ngIf="form.get('email')?.errors?.['email']">
+          It is not a valid email.
         </div>
+      </div>
+    </div>
 
-        <div>
-            <input type="{{ showPassword ? 'text' : 'password' }}" formControlName="password" name="password"
-                placeholder="Contraseña" required />
-            <i type="button" (click)="togglePasswordVisibility()" [class]="showPassword ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
-            <div
-                *ngIf="form.get('password')?.invalid && (form.get('password')?.touched && form.get('password')?.dirty)">
-                <div *ngIf="form.get('password')?.errors?.['required']">
-                    Password is required.
-                </div>
-            </div>
+    <div>
+      <input
+        type="{{ showPassword ? 'text' : 'password' }}"
+        formControlName="password"
+        name="password"
+        placeholder="Contraseña"
+        required
+      />
+      <div
+        *ngIf="
+          form.get('password')?.invalid &&
+          form.get('password')?.touched &&
+          form.get('password')?.dirty
+        "
+      >
+        <div *ngIf="form.get('password')?.errors?.['required']">
+          Password is required.
         </div>
+      </div>
+    </div>
 
-        <div *ngIf="message">{{ message }}</div>
-        <button id="btn-submit" type="submit" [disabled]="!form.valid">Sign In</button>
-    </form>
+    <div *ngIf="message">{{ message }}</div>
+    <button id="btn-submit" type="submit" [disabled]="!form.valid">
+      Sign In
+    </button>
+  </form>
 </div>

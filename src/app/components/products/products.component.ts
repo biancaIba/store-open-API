@@ -1,32 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductsService } from '../../services/products.service';
-import { Product } from 'src/app/interfaces/products.interface';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CartService } from 'src/app/services/cart.service';
+
+import { Product } from '../../interfaces/products.interface';
+import { ProductsService } from '../../services/products.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
 })
-
-export class ProductsComponent implements OnInit {
-
+export class ProductsComponent {
   products: Product[] = [];
   category: string = '';
 
   constructor(
     private productService: ProductsService,
     private route: ActivatedRoute,
-    private cartService: CartService,
-  ) { }
+    private cartService: CartService
+  ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       this.category = params['category'];
       this.productService.getProducts(this.category).subscribe({
-        next: (data: Product[]) => { this.products = data },
-        error: (err) => { console.error('Error trying to obtain products:', err); }
+        next: (data: Product[]) => {
+          this.products = data;
+        },
+        error: (err) => {
+          console.error('Error trying to obtain products:', err);
+        },
       });
     });
   }
@@ -38,5 +41,4 @@ export class ProductsComponent implements OnInit {
   minusProduct(productId: number): void {
     this.cartService.minusProduct(productId);
   }
-
 }

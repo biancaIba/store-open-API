@@ -1,29 +1,30 @@
 :root {
-    --back: #F0F0F0;
-    --dark: #212E38;
-    --main: #0098DA;
-    --text: black;
+  --back: #f0f0f0;
+  --dark: #212e38;
+  --main: #0098da;
+  --text: black;
 }
 
 * {
-    box-sizing: border-box;
-    font-family: 'Montserrat', 'sans serif';
+  box-sizing: border-box;
+  font-family: "Montserrat", "sans serif";
 }
 
 body {
-    margin: 0;
-    background-color: var(--back);
-    padding-right: 0 !important
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: var(--back);
+  padding-right: 0 !important;
 }
 
 a {
-    cursor: pointer;
-    color: var(--back);
-    text-decoration: none;
+  cursor: pointer;
+  color: var(--back);
+  text-decoration: none;
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 h1,
@@ -33,7 +34,7 @@ h4,
 h5,
 h6,
 p {
-    margin: 0;
-    padding: 0;
-    color: var(--text);
+  margin: 0;
+  padding: 0;
+  color: var(--text);
 }

@@ -1,36 +1,47 @@
 import { Injectable } from '@angular/core';
-import { env } from 'src/environments';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, catchError, throwError } from 'rxjs';
-import { User } from '../interfaces/user.interface';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import firebase from '@firebase/app-compat';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
+  constructor(private _auth: AngularFireAuth) {}
 
-  constructor(private http: HttpClient) { }
-
-  /**
-   * @param email 
-   * @param password 
-   * @returns token | error message
-   */
-  login(email: string, password: string): Observable<string> {
-    const user = {
-      email,
-      password
+  async login(email: string, password: string) {
+    try {
+      return await this._auth.signInWithEmailAndPassword(email, password);
+    } catch (error) {
+      alert('The login could not be done. Error: ' + error);
+      return null;
     }
-    const apiUrl = `${env.url}auth/login`;
-    return this.http.post<string>(apiUrl, user).pipe(
-      catchError(this.handleError)
-    );
-  }
-  
-  private handleError(error: HttpErrorResponse) {
-    if (error.status === 0) console.error('An error occurred:', error.error);
-    else console.error(`Backend returned code ${error.status}, body was: `, error.error);
-    return throwError(() => new Error('Something bad happened; please try again later.'));
   }
 
+  async loginGoogle() {
+    try {
+      return await this._auth.signInWithPopup(
+        new firebase.auth.GoogleAuthProvider()
+      );
+    } catch (error) {
+      alert('The login could not be done. Error: ' + error);
+      return null;
+    }
+  }
+
+  async register(email: string, password: string) {
+    try {
+      return await this._auth.createUserWithEmailAndPassword(email, password);
+    } catch (error) {
+      alert('The register could not be done. Error: ' + error);
+      return null;
+    }
+  }
+
+  async logOut() {
+    this._auth.signOut();
+  }
+
+  getUserData() {
+    return this._auth.authState;
+  }
 }

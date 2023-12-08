@@ -1,14 +1,12 @@
 export interface Product {
-    id: number,
-    title: string,
-    price: number,
-    description: string,
-    category: string,
-    image: string,
-    ratin: Ratin,
-}
-
-interface Ratin {
-    rate: number,
-    count: number,
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  category: string;
+  image: string;
+  ratin: {
+    rate: number;
+    count: number;
+  };
 }
