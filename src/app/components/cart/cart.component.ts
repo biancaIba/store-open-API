@@ -8,7 +8,6 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-
   hasProducts: boolean = false;
   private subscription: Subscription;
 
@@ -24,9 +23,5 @@ export class CartComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
-  }
-
-  showCart(): void {
-    
   }
 }
