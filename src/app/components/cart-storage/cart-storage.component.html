@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Your shopping cart</h1>
+  <div class="products-container">
+    <div class="product-container" *ngFor="let quantity of quantities; let i = index">
+      <p>{{ quantity }}</p>
+      <p>{{ products[i].title }}</p>
+    </div>
+  </div>
+  <div class="buttons-container">
+    <button [routerLink]="['/products']">Keep shopping</button>
+    <button>PAY</button>
+  </div>
+</div>
