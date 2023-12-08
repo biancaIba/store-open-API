@@ -3,17 +3,15 @@ import { ProductsService } from '../../services/products.service';
 import { Product } from 'src/app/interfaces/products.interface';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
-import { User } from 'src/app/interfaces/user.interface';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrl: './products.component.css'
+  styleUrls: ['./products.component.css']
 })
 
 export class ProductsComponent implements OnInit {
 
-  userLogged: User = null;
   products: Product[] = [];
   category: string = '';
 
@@ -27,10 +25,18 @@ export class ProductsComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.category = params['category'];
       this.productService.getProducts(this.category).subscribe({
-        next: (data: Product[]) => { this.products = data; }
+        next: (data: Product[]) => { this.products = data },
+        error: (err) => { console.error('Error trying to obtain products:', err); }
       });
     });
   }
 
+  addProduct(productId: number): void {
+    this.cartService.addProduct(productId);
+  }
+
+  minusProduct(productId: number): void {
+    this.cartService.minusProduct(productId);
+  }
 
 }
