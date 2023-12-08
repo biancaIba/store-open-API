@@ -11,7 +11,6 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
   form: FormGroup = new FormGroup({});
-  message: string = '';
   showPassword: boolean = false;
 
   constructor(
@@ -29,17 +28,16 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    this.message = '';
     const emailControl = this.form.get('email');
     const passwordControl = this.form.get('password');
     if (emailControl && passwordControl) {
       const email = emailControl.value;
       const password = passwordControl.value;
       this.authService.login(email, password).then((res: any) => {
-        console.log(res);
-        this.message = 'Success';
-        this.form.reset();
-        this.router.navigate(['']);
+        if (res) {
+          this.form.reset();
+          this.router.navigate(['']);
+        }
       });
     }
   }
