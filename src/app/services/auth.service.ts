@@ -17,17 +17,6 @@ export class AuthService {
     }
   }
 
-  async loginGoogle() {
-    try {
-      return await this._auth.signInWithPopup(
-        new firebase.auth.GoogleAuthProvider()
-      );
-    } catch (error) {
-      alert('The login could not be done. Error: ' + error);
-      return null;
-    }
-  }
-
   async register(email: string, password: string) {
     try {
       return await this._auth.createUserWithEmailAndPassword(email, password);
