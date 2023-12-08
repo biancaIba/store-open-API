@@ -16,6 +16,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { LoginComponent } from './components/login/login.component';
 import { CartComponent } from './components/cart/cart.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { CartComponent } from './components/cart/cart.component';
     FooterComponent,
     ProductsComponent,
     LoginComponent,
+    RegisterComponent,
     CartComponent,
   ],
   imports: [
@@ -41,6 +43,7 @@ import { CartComponent } from './components/cart/cart.component';
         pathMatch: 'full',
       },
       { path: 'login', component: LoginComponent, pathMatch: 'full' },
+      { path: 'register', component: RegisterComponent, pathMatch: 'full' },
       { path: '**', redirectTo: '', pathMatch: 'full' },
     ]),
   ],
