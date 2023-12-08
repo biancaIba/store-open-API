@@ -17,6 +17,7 @@ import { BannerComponent } from './components/banner/banner.component';
 import { LoginComponent } from './components/login/login.component';
 import { CartComponent } from './components/cart/cart.component';
 import { RegisterComponent } from './components/register/register.component';
+import { CartStorageComponent } from './components/cart-storage/cart-storage.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { RegisterComponent } from './components/register/register.component';
     LoginComponent,
     RegisterComponent,
     CartComponent,
+    CartStorageComponent,
   ],
   imports: [
     CommonModule,
@@ -44,6 +46,7 @@ import { RegisterComponent } from './components/register/register.component';
       },
       { path: 'login', component: LoginComponent, pathMatch: 'full' },
       { path: 'register', component: RegisterComponent, pathMatch: 'full' },
+      { path: 'shopping', component: CartStorageComponent, pathMatch: 'full' },
       { path: '**', redirectTo: '', pathMatch: 'full' },
     ]),
   ],
