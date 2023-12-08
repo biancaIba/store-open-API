@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +14,11 @@ export class LoginComponent implements OnInit {
   message: string = '';
   showPassword: boolean = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -23,22 +30,17 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     this.message = '';
-    const usernameControl = this.form.get('username');
+    const emailControl = this.form.get('email');
     const passwordControl = this.form.get('password');
-    if (usernameControl && passwordControl) {
-      //const username = usernameControl.value;
-      //const password = passwordControl.value;
-      /*this.authService.login(username, password).subscribe({
-        next: (token) => {
-          this.message = 'Success';
-          // hacer que aparezca un algo con los datos del perfil.
-          this.form.reset();
-          this.authService.setUser(1); // always puts id = 1
-        },
-        error: (e) => {
-          this.message = e;
-        },
-      });*/
+    if (emailControl && passwordControl) {
+      const email = emailControl.value;
+      const password = passwordControl.value;
+      this.authService.login(email, password).then((res: any) => {
+        console.log(res);
+        this.message = 'Success';
+        this.form.reset();
+        this.router.navigate(['']);
+      });
     }
   }
 }
