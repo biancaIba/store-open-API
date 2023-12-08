@@ -25,6 +25,41 @@ a {
 
 button {
   cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+button:enabled {
+  background: var(--back);
+  border: 1px solid var(--dark);
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+button:enabled:hover {
+  background-color: var(--main);
+  color: var(--back);
+  border: none;
+}
+
+button:disabled {
+  border: 1px solid var(--dark);
+}
+
+input {
+  color: var(--dark);
+  display: block;
+  margin: 0.8rem 0;
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border: 0 none;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4);
 }
 
 h1,
