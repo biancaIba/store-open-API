@@ -1,0 +1,28 @@
+p {
+  color: var(--back);
+}
+
+.container {
+  width: 80%;
+  position: relative;
+  left: 10%;
+  bottom: 20px;
+}
+
+.products-container {
+  margin: 20px 50px;
+  padding: 20px;
+  border: 2px solid var(--dark);
+  border-radius: 15px;
+  background-color: var(--main);
+}
+
+.product-container {
+  display: flex;
+  gap: 10px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+}
