@@ -5,8 +5,9 @@
         <h2>Check US</h2>
         <a [routerLink]="['']">Home</a>
         <a [routerLink]="['/products']">Products</a>
-        <a>Register</a>
-        <a [routerLink]="['/products']">Login</a>
+        <a *ngIf="!logged" [routerLink]="['/login']">Login</a>
+        <a *ngIf="!logged" [routerLink]="['/register']">Register</a>
+        <a *ngIf="logged" (click)="logOut()">Logout</a>
       </div>
       <div class="links-column socials-column">
         <h2>Social Media</h2>

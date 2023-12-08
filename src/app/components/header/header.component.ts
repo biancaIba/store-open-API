@@ -10,7 +10,7 @@ import { ProductsService } from '../../services/products.service';
 })
 export class HeaderComponent implements OnInit {
   logged: boolean = false;
-  user: any = null;
+  username: string = null;
   categories: string[] = [];
 
   constructor(
@@ -22,19 +22,13 @@ export class HeaderComponent implements OnInit {
     this.authService.getUserData().subscribe((res: any) => {
       if (res) {
         this.logged = true;
-        this.user = res;
+        this.username = res._delegate.displayName;
       }
     });
     this.productService.getCategories().subscribe({
       next: (data: string[]) => {
         this.categories = data;
       },
-    });
-  }
-
-  logOut(): void {
-    this.authService.logOut().then((res: any) => {
-      if (res) this.logged = false;
     });
   }
 }
