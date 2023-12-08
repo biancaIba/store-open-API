@@ -16,7 +16,7 @@ export class ProductsService {
   }
 
   getProducts(category: string): Observable<Product[]> {
-    let request;
+    let request: any;
     if (category === 'all')
       request = this.http.get<Product[]>(`${env.url}products`);
     else
@@ -24,6 +24,14 @@ export class ProductsService {
         `${env.url}products/category/${category}`
       );
     return request.pipe(
+      catchError(() => {
+        return throwError(() => new Error('Something went wrong!'));
+      })
+    );
+  }
+
+  getProductById(id: number): Observable<Product> {
+    return this.http.get<Product>(`${env.url}products/${id}`).pipe(
       catchError(() => {
         return throwError(() => new Error('Something went wrong!'));
       })
