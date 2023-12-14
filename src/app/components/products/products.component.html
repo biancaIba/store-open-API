@@ -5,8 +5,10 @@
     </div>
     <div class="card-title">
       <h4>{{ product.title }}</h4>
-      <div class="card-description">
-        <p *ngIf="product.description">{{ product.description }}</p>
+      <div class="card-description" *ngIf="product">
+        <p>{{ product.description }}</p>
+        <p class="rate">Rate: {{ product.rating.rate }} points</p>
+        <p class="price">${{ product.price }}</p>
       </div>
     </div>
     <div class="buttons">
