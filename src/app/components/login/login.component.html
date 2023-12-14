@@ -44,7 +44,7 @@
       </div>
     </div>
 
-    <div>
+    <div class="group-form-input">
       <input
         type="{{ showPassword ? 'text' : 'password' }}"
         formControlName="password"
@@ -52,6 +52,11 @@
         placeholder="Contraseña"
         required
       />
+      <i
+        type="button"
+        (click)="togglePasswordVisibility()"
+        [class]="showPassword ? 'fa fa-eye' : 'fa fa-eye-slash'"
+      ></i>
       <div
         *ngIf="
           form.get('password')?.invalid &&

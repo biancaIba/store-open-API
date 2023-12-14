@@ -41,4 +41,8 @@ export class LoginComponent implements OnInit {
       });
     }
   }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
 }
