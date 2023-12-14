@@ -9,3 +9,19 @@ a {
   box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4);
   padding: 20px;
 }
+
+.group-form-input {
+  position: relative;
+  margin: 0.8rem 0;
+}
+
+.group-form-input i {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  color: #777;
+  z-index: 1;
+}

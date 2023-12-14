@@ -10,7 +10,7 @@ p {
 }
 
 .products-container {
-  margin: 20px 50px;
+  margin: 20px 0px;
   padding: 20px;
   border: 2px solid var(--dark);
   border-radius: 15px;
@@ -25,4 +25,8 @@ p {
 .buttons-container {
   display: flex;
   justify-content: center;
+}
+
+.price {
+  font-weight: 800;
 }

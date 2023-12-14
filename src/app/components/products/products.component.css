@@ -120,3 +120,18 @@ i:hover {
     left: 10%;
   }
 }
+
+.rate {
+  color: var(--back);
+  width: fit-content;
+  background-color: var(--dark);
+  font-weight: 800;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.price {
+  font-size: 20px !important;
+  font-weight: 800;
+  color: var(--main);
+}
