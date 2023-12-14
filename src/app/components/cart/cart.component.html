@@ -1,4 +1,8 @@
 <div class="sidebar">
   <i *ngIf="!hasProducts" class="fa-solid fa-cart-shopping fa-xl"></i>
-  <i *ngIf="hasProducts" [routerLink]="['/shopping']" class="fa-solid fa-cart-shopping fa-beat fa-xl"></i>
+  <i
+    *ngIf="hasProducts"
+    [routerLink]="['/shopping']"
+    class="fa-solid fa-cart-shopping fa-beat fa-xl"
+  ></i>
 </div>
