@@ -1,13 +1,22 @@
 <div class="container">
   <h1>Your shopping cart</h1>
   <div class="products-container">
-    <div class="product-container" *ngFor="let quantity of quantities; let i = index">
+    <div
+      class="product-container"
+      *ngFor="let quantity of quantities; let i = index"
+    >
       <p>{{ quantity }}</p>
-      <p>{{ products[i].title }}</p>
+      <p *ngIf="products[i]">{{ products[i].title }}</p>
+      <div class="price" *ngIf="products[i]">
+        <p>${{ products[i].price }}</p>
+      </div>
     </div>
   </div>
+  <p *ngIf="message" style="color: var(--main); font-weight: bold">
+    {{ message }}
+  </p>
   <div class="buttons-container">
     <button [routerLink]="['/products/all']">Keep shopping</button>
-    <button>PAY</button>
+    <button (click)="pay()">PAY</button>
   </div>
 </div>
