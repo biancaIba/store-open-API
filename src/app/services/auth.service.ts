@@ -1,11 +1,17 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
+import { CartService } from './cart.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private _auth: AngularFireAuth) {}
+  constructor(
+    private _auth: AngularFireAuth,
+    private router: Router,
+    private cartService: CartService
+  ) {}
 
   async login(email: string, password: string) {
     try {
@@ -27,6 +33,9 @@ export class AuthService {
 
   async logOut() {
     this._auth.signOut();
+    location.reload(); // reload the web
+    this.cartService.cancelCart();
+    this.router.navigate(['']);
   }
 
   getUserData() {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from 'src/app/services/auth.service';
 import { ProductsService } from '../../services/products.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +16,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private productService: ProductsService
+    private productService: ProductsService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -30,5 +32,9 @@ export class HeaderComponent implements OnInit {
         this.categories = data;
       },
     });
+  }
+
+  logOut(): void {
+    this.authService.logOut();
   }
 }

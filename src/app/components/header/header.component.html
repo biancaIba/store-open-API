@@ -14,7 +14,7 @@
         </div>
       </div>
     </div>
-    <a *ngIf="logged" class="item login">Hola {{ username }}!</a>
+    <a *ngIf="logged" (click)="logOut()" class="item login">Log out</a>
     <a *ngIf="!logged" [routerLink]="['/login']" class="item login">Log In</a>
     <div class="underline"></div>
   </nav>

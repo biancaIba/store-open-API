@@ -19,10 +19,6 @@ export class FooterComponent implements OnInit {
   }
 
   logOut(): void {
-    this.authService.logOut().then((res: any) => {
-      if (res) this.logged = false;
-      location.reload(); // reload the web
-      this.router.navigate(['']);
-    });
+    this.authService.logOut();
   }
 }
