@@ -19,7 +19,7 @@ for a dev server. Navigate to `http://localhost:4200/`.
 Once it is finish, run
 
 ```
-ng build --configuration=production --base-href /final-project/
+ng build --configuration=production
 ```
 
 to build the project.
