@@ -23,13 +23,3 @@ ng build --configuration=production
 ```
 
 to build the project.
-
-## Trying the app
-
-Login information:
-
-```
-username: biancaiba
-email: bibanez@morean.co
-password: Prueba123
-```
